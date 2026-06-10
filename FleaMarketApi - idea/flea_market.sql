@@ -201,3 +201,26 @@ INSERT INTO `sh_type` VALUES (6, '运动户外');
 INSERT INTO `sh_type` VALUES (7, '宠物花卉');
 INSERT INTO `sh_type` VALUES (8, '其他');
 
+-- ----------------------------
+-- Table structure for sh_user
+-- ----------------------------
+DROP TABLE IF EXISTS `sh_user`;
+CREATE TABLE `sh_user`  (
+  `id` bigint(0) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `account_number` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '账号（手机号）',
+  `user_password` varchar(16) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '登录密码',
+  `nickname` varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '昵称',
+  `avatar` varchar(256) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT '头像',
+  `sign_in_time` datetime NOT NULL COMMENT '注册时间',
+  `user_status` tinyint(0) NULL DEFAULT NULL COMMENT '状态（1代表封禁）',
+  PRIMARY KEY (`id`) USING BTREE,
+  UNIQUE INDEX `account_number`(`account_number`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of sh_user
+-- ----------------------------
+INSERT INTO `sh_user` VALUES (11, '13333333333', '123456', '张三', '/image?imageName=file1702122419646101007.jpg', '2023-12-08 13:18:34', 0);
+INSERT INTO `sh_user` VALUES (12, '13555555555', '123456', '李四', '/image?imageName=noasndo123.jpg', '2023-12-09 11:43:04', NULL);
+
+SET FOREIGN_KEY_CHECKS = 1;
